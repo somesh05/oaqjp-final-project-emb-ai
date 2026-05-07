@@ -3,7 +3,6 @@ Flask server for Emotion Detection application.
 """
 
 from flask import Flask, render_template, request
-
 from EmotionDetection import emotion_detector
 
 app = Flask(__name__)
@@ -11,6 +10,10 @@ app = Flask(__name__)
 
 @app.route("/emotionDetector")
 def emotion_analyzer():
+    """
+    Function to analyze emotions from user input text.
+    Returns formatted response or error message.
+    """
 
     text_to_analyze = request.args.get("textToAnalyze")
 
@@ -33,9 +36,8 @@ def emotion_analyzer():
 @app.route("/")
 def render_index_page():
     """
-    Render index page.
+    Render the main homepage.
     """
-
     return render_template("index.html")
 
 
